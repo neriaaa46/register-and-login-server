@@ -15,8 +15,9 @@ const detailsRouter = require('./routes/details');
 
 const app = express();
 
-app.use(cors({methods: ["GET", "POST", "PUT", "DELETE"],
- origin: 'https://wizardly-hopper-f2bf68.netlify.app', credentials: true}));
+app.use(cors(
+    {methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true}));
 
   
 app.use(logger('dev'));
