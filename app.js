@@ -17,7 +17,7 @@ const app = express();
 
 app.use(cors(
     {methods: ["GET", "POST", "PUT", "DELETE"],
-    origin: "*",
+    origin: "https://wizardly-hopper-f2bf68.netlify.app",
     credentials: true}));
 
   
