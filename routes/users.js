@@ -42,7 +42,7 @@ router.route("/logout")
 
 
 router.route("/changePassword")
-.put(csrfProtection, validationServer(changePasswordValidation), verifyTokenChangePassword, async function (req, res){
+.put(validationServer(changePasswordValidation), verifyTokenChangePassword, async function (req, res){
   try{
     const {password, token} = req.body
     const response = await changePassword(password, token)
