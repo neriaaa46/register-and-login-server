@@ -16,7 +16,7 @@ const detailsRouter = require('./routes/details');
 const app = express();
 
 app.use(cors({methods: ["GET", "POST", "PUT", "DELETE"],
- origin: "http://localhost:3000", credentials: true}));
+ origin: "Access-Control-Allow-Origin", credentials: true}));
 
   
 app.use(logger('dev'));
