@@ -12,7 +12,7 @@ router.route('/')
         const jwtToken = req.headers['authorization'].replace('Bearer ', '')        
         const {accessToken, refreshToken} = await getTokens(jwtToken, req.cookies.refreshToken)
 
-        res.cookie("refreshToken", refreshToken, {httpOnly: true, Domain: "https://wizardly-hopper-f2bf68.netlify.app"})
+        res.cookie("refreshToken", refreshToken, {httpOnly: true, domain: "https://wizardly-hopper-f2bf68.netlify.app"})
         res.status(200).json({accessToken})
 
     }catch(error){
