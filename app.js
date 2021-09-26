@@ -17,7 +17,7 @@ const app = express();
 
 app.use(
         cors({
-            origin: "https://login-register-app.netlify.app",
+            origin: "https://register-and-login-app.netlify.app",
             credentials: true
         }))
 
