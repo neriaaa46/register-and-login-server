@@ -17,7 +17,7 @@ const app = express();
 
 app.use(
         cors({
-            origin: "https://wizardly-hopper-f2bf68.netlify.app",
+            origin: "https://login-register-app.netlify.app",
             credentials: true
         }))
 
