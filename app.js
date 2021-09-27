@@ -3,7 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require("cors");
-
+const {handleDisconnect} = require("./utils/dbConnect")
 require("dotenv").config();
 
 const indexRouter = require('./routes/index');
@@ -34,5 +34,6 @@ app.use('/email', emailRouter);
 app.use('/refreshToken', refreshTokenRouter);
 app.use('/details', detailsRouter);
 
+handleDisconnect()
 
 module.exports = app;
