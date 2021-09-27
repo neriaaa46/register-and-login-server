@@ -9,7 +9,7 @@ router.route("/confirm/:token")
 .get(async function(req, res){
     try{
        await confirmEmail(req.params.token)
-       res.status(302).redirect("http://localhost:3000/login")
+       res.status(302).redirect("https://register-and-login-app.netlify.app/login")
     }catch(error){
         res.status(400).json({error: error.message})
     }
