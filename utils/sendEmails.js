@@ -9,7 +9,7 @@ function sendEmailToConfirm(id, firstName, lastName, email){
     const html = `<div style="direction:ltr">
                   <h1>Hello ${firstName} ${lastName}</h1>
                   <p>click on the link to confirm your email address</p>
-                  <a href = "https://register-and-login-app.netlify.app/email/confirm/${token}">click here</a>
+                  <a href = "https://register-and-login-app.herokuapp.com/email/confirm/${token}">click here</a>
                   </div>`
 
     const subject = "confirm email"
