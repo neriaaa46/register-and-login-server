@@ -41,7 +41,7 @@ db.getConnection(function(err, connection){
     if(err){
         return cb(err);
     }
-    connection.changeUser({database : "heroku_8f772d7e14d0609"});
+    connection.changeUser({database : process.env.DB_NAME});
     connection.query("SELECT * from users", function(err, data){
         connection.release();
         cb(err, data);
