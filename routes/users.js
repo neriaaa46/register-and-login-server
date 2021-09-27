@@ -25,7 +25,7 @@ router.route("/login")
   try{
     const loginDetails = req.body
     const {accessToken, refreshToken} = await login(loginDetails)
-    res.cookie('refreshToken', refreshToken, {httpOnly: true})
+    res.cookie('refreshToken', refreshToken, {httpOnly: true, sameSite: 'none', secure: 'true'})
     res.status(200).json({accessToken, message: "התחברות בוצעה בהצלחה"})
 
   }catch(error){
