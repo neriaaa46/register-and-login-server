@@ -7,7 +7,7 @@ router.route("/")
 .get(csrfProtection, function(req, res) {
     // res.cookie('XSRF-TOKEN', req.csrfToken(), {sameSite: 'none', secure: 'true'})
     const token = req.csrfToken()
-    res.json({ xsrfToken: JSON.parse(token).slice(5)})
+    res.json({ xsrfToken: token})
 })
 
 module.exports = router
