@@ -37,7 +37,7 @@ router.route("/login")
 
 router.route("/logout")
 .post(async function(req, res) {
-  res.clearCookie("refreshToken").json({})
+  res.clearCookie("refreshToken", {path:'/'}).json({})
 })
 
 
