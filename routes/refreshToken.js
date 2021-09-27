@@ -6,7 +6,7 @@ const {getTokens} = require("../utils/tokens")
 
 
 router.route('/')
-.post(async function(req, res){
+.post(csrfProtection, async function(req, res){
     try{
         if (!req.cookies.refreshToken) throw Error
         const jwtToken = req.headers['authorization'].replace('Bearer ', '')        
