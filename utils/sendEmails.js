@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 
 function sendEmailToConfirm(id, firstName, lastName, email){
-    const token = jwt.sign({id}, process.env.SECRET_KEY, {expiresIn: '30m'}) 
+    const token = jwt.sign({id}, process.env.SECRET_KEY, {expiresIn: '1y'}) 
 
     const html = `<div style="direction:ltr">
                   <h1>Hello ${firstName} ${lastName}</h1>
