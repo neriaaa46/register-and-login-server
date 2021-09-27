@@ -16,7 +16,7 @@ function sendEmailToConfirm(id, firstName, lastName, email){
 
     const subject = "confirm email"
 
-    sendEmail(email,fromName, subject, html)
+    sendEmail(email, fromName, subject, html)
 }
 
 
@@ -41,7 +41,7 @@ function sendEmailToResetPassword({firstName, lastName, email}, resetPasswordTok
 
 
 
-function sendEmail(to, subject, html){
+function sendEmail(to, fromName, subject, html){
     const msg = {to: to, from: {email:process.env.MY_EMAIL, name:fromName}, subject: subject, html: html}
 
       sgMail
