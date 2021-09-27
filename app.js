@@ -20,7 +20,8 @@ app.use(cors({
             credentials: true
         }))
 
-  
+handleDisconnect()
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,6 +35,5 @@ app.use('/email', emailRouter);
 app.use('/refreshToken', refreshTokenRouter);
 app.use('/details', detailsRouter);
 
-handleDisconnect()
 
 module.exports = app;
