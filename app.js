@@ -15,11 +15,19 @@ const detailsRouter = require('./routes/details');
 
 const app = express();
 
-app.use(
-        cors({
+app.use(cors({
             origin: "https://register-and-login-app.netlify.app",
             credentials: true
-        }))
+        }),
+        session({
+            resave: true,
+            saveUninitialized: false,
+            cookie: {
+              httpOnly: true,
+              secure: true,
+              sameSite: "none",
+            }})
+        )
 
   
 app.use(logger('dev'));
