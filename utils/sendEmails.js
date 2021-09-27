@@ -4,7 +4,9 @@ const jwt = require('jsonwebtoken')
 
 
 function sendEmailToConfirm(id, firstName, lastName, email){
+
     const token = jwt.sign({id}, process.env.SECRET_KEY, {expiresIn: '1y'}) 
+    const fromName = 'Confirm Password - Authenticaion Web'
 
     const html = `<div style="direction:ltr">
                   <h1>Hello ${firstName} ${lastName}</h1>
@@ -14,14 +16,16 @@ function sendEmailToConfirm(id, firstName, lastName, email){
 
     const subject = "confirm email"
 
-    sendEmail(email, subject, html)
+    sendEmail(email,fromName, subject, html)
 }
 
 
 function sendEmailToResetPassword({firstName, lastName, email}, resetPasswordToken){
 
   const subject = "reset password"
-
+  const fromName = "Reset Password - Authenticaion Web"
+  
+  
   const html = `<div style="direction:ltr">
   <h1>Hello ${firstName} ${lastName}</h1>
   <p>You have receiving this mail beacuse you (or someone else) have requested to reset your password account.</p>
@@ -30,7 +34,7 @@ function sendEmailToResetPassword({firstName, lastName, email}, resetPasswordTok
   <p>If you did not request this, please ignore this email and your password will remain unchanged.</p>
   </div>`
 
-  sendEmail(email, subject, html)
+  sendEmail(email, fromName, subject, html)
   
 }
 
@@ -38,7 +42,7 @@ function sendEmailToResetPassword({firstName, lastName, email}, resetPasswordTok
 
 
 function sendEmail(to, subject, html){
-    const msg = {to: to, from: process.env.MY_EMAIL, subject: subject, html: html}
+    const msg = {to: to, from: {email:process.env.MY_EMAIL, name:fromName}, subject: subject, html: html}
 
       sgMail
         .send(msg)
