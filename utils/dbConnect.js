@@ -9,7 +9,7 @@ const db = mysql.createConnection({
   })
 
 
-  const connection
+  let connection
 
   export function handleDisconnect() {
     connection = mysql.createConnection(db); // Recreate the connection, since
