@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var csrf = require('csurf')
-var csrfProtection = csrf({cookie: { httpOnly: true, sameSite: 'none', secure: 'true'}})
+var csrfProtection = csrf({cookie: { httpOnly: true}})
 const {getTokens} = require("../utils/tokens")
 
 
@@ -12,7 +12,7 @@ router.route('/')
         const jwtToken = req.headers['authorization'].replace('Bearer ', '')        
         const {accessToken, refreshToken} = await getTokens(jwtToken, req.cookies.refreshToken)
 
-        res.cookie("refreshToken", refreshToken, {sameSite: 'none', secure: 'true'})
+        res.cookie("refreshToken", refreshToken, { httpOnly: true})
         res.status(200).json({accessToken})
 
     }catch(error){
