@@ -41,8 +41,8 @@ db.getConnection(function(err, connection){
     if(err){
         return cb(err);
     }
-    connection.changeUser({database : "firm1"});
-    connection.query("SELECT * from history", function(err, data){
+    connection.changeUser({database : "heroku_8f772d7e14d0609"});
+    connection.query("SELECT * from users", function(err, data){
         connection.release();
         cb(err, data);
     });
