@@ -3,7 +3,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require("cors");
+const db = require("./utils/dbConnect")
 require("dotenv").config();
+
 
 const indexRouter = require('./routes/index');
 const csrfTokenRouter = require('./routes/csrfToken');
@@ -32,6 +34,19 @@ app.use('/users', usersRouter);
 app.use('/email', emailRouter);
 app.use('/refreshToken', refreshTokenRouter);
 app.use('/details', detailsRouter);
+
+
+
+db.getConnection(function(err, connection){
+    if(err){
+        return cb(err);
+    }
+    connection.changeUser({database : "firm1"});
+    connection.query("SELECT * from history", function(err, data){
+        connection.release();
+        cb(err, data);
+    });
+  });
 
 
 module.exports = app;
