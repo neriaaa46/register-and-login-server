@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 function sendEmailToConfirm(id, firstName, lastName, email){
 
     const token = jwt.sign({id}, process.env.SECRET_KEY, {expiresIn: '1y'}) 
-    const fromName = 'Confirm Password - Authenticaion Web'
+    const fromName = 'Authenticaion Web'
 
     const html = `<div style="direction:ltr">
                   <h1>Hello ${firstName} ${lastName}</h1>
@@ -14,7 +14,7 @@ function sendEmailToConfirm(id, firstName, lastName, email){
                   <a href = "https://register-and-login-app.herokuapp.com/email/confirm/${token}">click here</a>
                   </div>`
 
-    const subject = "confirm email"
+    const subject = "Confirm Email"
 
     sendEmail(email, fromName, subject, html)
 }
@@ -22,8 +22,8 @@ function sendEmailToConfirm(id, firstName, lastName, email){
 
 function sendEmailToResetPassword({firstName, lastName, email}, resetPasswordToken){
 
-  const subject = "reset password"
-  const fromName = "Reset Password - Authenticaion Web"
+  const subject = "Reset Password"
+  const fromName = "Authenticaion Web"
   
   
   const html = `<div style="direction:ltr">
