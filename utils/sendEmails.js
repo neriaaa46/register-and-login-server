@@ -24,9 +24,7 @@ function sendEmailToResetPassword({firstName, lastName, email}, resetPasswordTok
 
   const subject = "Reset Password"
   const fromName = "Authenticaion Web"
-  console.log(process.env.MY_EMAIL)
-  console.log(process.env.EMAIL_KEY)
-  
+ 
   
   const html = `<div style="direction:ltr">
   <h1>Hello ${firstName} ${lastName}</h1>
