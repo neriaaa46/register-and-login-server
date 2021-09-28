@@ -24,6 +24,8 @@ function sendEmailToResetPassword({firstName, lastName, email}, resetPasswordTok
 
   const subject = "Reset Password"
   const fromName = "Authenticaion Web"
+  console.log(process.env.MY_EMAIL)
+  console.log(process.env.EMAIL_KEY)
   
   
   const html = `<div style="direction:ltr">
@@ -42,7 +44,7 @@ function sendEmailToResetPassword({firstName, lastName, email}, resetPasswordTok
 
 
 function sendEmail(to, fromName, subject, html){
-    const msg = {to: to, from: {email:process.env.MY_EMAIL, name:fromName}, subject: subject, html: html}
+    const msg = {to: to, from: {email: process.env.MY_EMAIL, name:fromName}, subject: subject, html: html}
 
       sgMail
         .send(msg)
